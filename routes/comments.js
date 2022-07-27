@@ -52,7 +52,7 @@ router.get("/", async (req,res) => {
 router.get("/:guitarId", async (req, res) => {
   const { guitarId } = req.params;
 
-  const guitars = await Comments.find({ guitarId: Number(guitarId) });
+  const guitars = await Comments.find({ guitarId: Number(guitarId) }).sort({cmtdate : -1});
   console.log(guitars)
 
   res.json({
