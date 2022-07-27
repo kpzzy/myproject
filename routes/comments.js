@@ -57,7 +57,7 @@ router.delete("/:guitarId/:commentId", async (req, res) => {
   console.log(comment)
 
   if (comment != null){
-    await Comments.deleteOne({ guitarId });
+    await Comments.deleteOne({ commentId:commentId });
   } else {
     return res.status(400).json({ message : "지울게 없음"})
   }
