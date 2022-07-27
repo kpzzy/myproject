@@ -9,7 +9,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   const { category } = req.query;
   // console.log("category", category)
-  const guitars = await Guitar.find({ category }).sort({cmtdate : -1}).select("-category -guitarId -password -_id -__v");
+  const guitars = await Guitar.find({ category }).sort({date : -1}).select("-category -guitarId -password -_id -__v");
   res.json({
     guitars: guitars
   });
