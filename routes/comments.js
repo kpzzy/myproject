@@ -20,7 +20,7 @@ router.get("/", async (req,res) => {
 router.get("/:guitarId", async (req, res) => {
   const { guitarId } = req.params;
 
-  const guitars = await Comments.find({ guitarId: Number(guitarId) }).sort({cmtdate : -1}).select("-password -guitarId -commentId -__v");
+  const guitars = await Comments.find({ guitarId: Number(guitarId) }).sort({cmtdate : -1}).select("-_id -password -guitarId -commentId -__v");
   console.log(guitars)
 
   res.json({
