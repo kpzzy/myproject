@@ -14,8 +14,8 @@
 ```  
 
 ### api 설계
-![api 설계1](https://user-images.githubusercontent.com/107670953/181430166-7d6790e6-429c-4068-8bd4-118d4e763470.png)
-![api 설계2](https://user-images.githubusercontent.com/107670953/181430205-5a75b936-071c-4572-8b72-648fb8263ff3.png)
+![api1](https://user-images.githubusercontent.com/107670953/181434674-141e04f4-c7d2-4bc7-82da-f23a823d4e67.png)
+![api2](https://user-images.githubusercontent.com/107670953/181434688-6d8038bd-55c9-4ac3-9ba3-9c7e7fe1826e.png)
 
 ### 수정, 삭제 API의 request를 어떤 방식으로 사용하셨나요? (param, query, body) 
 
