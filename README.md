@@ -6,11 +6,11 @@
 ├── routes
 │   ├── index.js
 │   ├── comments.js
-│   └── posts.js
+│   └── guitar.js
 └── schemas
     ├── index.js
     ├── comment.js
-    └── post.js
+    └── guitar.js
 ```  
 
 ### api 설계
