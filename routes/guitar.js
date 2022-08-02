@@ -1,12 +1,13 @@
 const express = require("express");
-const Guitar = require("../schemas/guitar")
+const Guitar = require("../schemas/guitar");
+const checktokenMiddleware = require("./check");
 const router = express.Router();
 
 
 
 // 기타목록 전체 조회
 // 모든내용 다가져오고 내림차순 정렬
-router.get("/", async (req, res) => {
+router.get("/", checktokenMiddleware, async (req, res) => {
   const { category } = req.query;
   // console.log("category", category)
   const guitars = await Guitar.find({ category }).sort({date : -1}).select("-category -guitarId -password -_id -__v");

@@ -2,6 +2,7 @@ const express = require("express");
 const Guitar = require("../schemas/guitar");
 const Comments = require("../schemas/comments");
 const { countDocuments } = require("../schemas/guitar");
+const checktokenMiddleware = require("./check");
 const router = express.Router();
 
 // 댓글창 풀 조회
@@ -30,7 +31,7 @@ router.get("/:guitarId", async (req, res) => {
 
 // 댓글 쓰기
 // 내용이 비어있으면 작성 불가
-router.post("/:guitarId", async (req,res) => {
+router.post("/:guitarId", checktokenMiddleware, async (req,res) => {
     const { user, password, content, guitarId, commentId } = req.body;
     // console.log(content)
     const comment = await Comments.find({guitarId})
@@ -49,7 +50,7 @@ router.post("/:guitarId", async (req,res) => {
 
 // 삭제기능
 // 아무것도 없으면 없다고 출력하기
-router.delete("/:guitarId/:commentId", async (req, res) => {
+router.delete("/:guitarId/:commentId", checktokenMiddleware, async (req, res) => {
   const { guitarId } = req.params;
   const { commentId } = req.params;
   console.log({commentId})
@@ -66,7 +67,7 @@ router.delete("/:guitarId/:commentId", async (req, res) => {
 
 // 수정기능
 // 기타아이디랑 댓글코멘트 아이디로 확인하고 내용이 없다면 없다라고 알려주기
-router.put("/:guitarId/:commentId", async (req, res) => {
+router.put("/:guitarId/:commentId", checktokenMiddleware, async (req, res) => {
   const { guitarId } = req.params;
   // console.log({guitarId})
   const { commentId } = req.params;
