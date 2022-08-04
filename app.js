@@ -11,6 +11,7 @@ connect();
 const guitarRouter = require("./routes/guitar");
 const commentsRouter = require("./routes/comments");
 const userRouter = require("./routes/user");
+const likeRouter = require("./routes/like");
 
 
 const requestMiddleware = (req, res, next) => {
@@ -25,6 +26,7 @@ app.use(requestMiddleware)
 app.use("/posts", [guitarRouter]);
 app.use("/comments", [commentsRouter]);
 app.use("/login", [userRouter]);
+app.use("/like", [likeRouter]);
 
 
 sequelize.sync({ force: false })
